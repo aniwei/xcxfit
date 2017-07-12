@@ -1,0 +1,12 @@
+<template name="component-tools-pannel">
+  <view class="tools-pannel">
+    <view 
+      class="icon-{{item.icon}}" 
+      bindtap="onToolTap" 
+      data-page="{{item.page}}"
+      wx:for="{{tools}}" 
+      wx:for-index="index" 
+      wx:for-item="item">
+    </view>
+  </view>
+</template>

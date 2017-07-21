@@ -1,60 +1,32 @@
 
-import ToolPanel from '../components/tools-pannel/index'
 //index.js
-const {connect} = require( '../../libs/wechat-weapp-redux.js' );
-const {addTodo, setVisibilityFilter, toggleTodo} = require( '../../actions/index.js' );
+import { connect } from '../../libs/wechat-weapp-redux.js';
+import Nav from '../components/nav/index.js';
 
+const defaultConfig = Object.assign({
+  onReady () {}
+}, Nav);
 
+const mapStateToData = state => {
+  const { tools, tabbar } = state;
+  const { selected } = tabbar;
 
-const pageConfig = {
-  data: {
-    todos: [],
-    tools: [
-      { icon: '123', text: 'hello' }
-    ],
-    filters: [ { key: 'SHOW_ALL', text: '全部' }, { key: 'SHOW_ACTIVE', text: '正在进行' }, { key: 'SHOW_COMPLETED', text: '已完成' }]
-  },
-
-  handleCheck: function( e ) {
-    const id = parseInt( e.target.id )
-    this.toggleTodo( id );
-  },
-  applyFilter: function( e ) {
-    this.setVisibilityFilter( e.target.id )
-  },
-
-  onReady () {
-    const { dispatch } = this;
-
-    dispatch()
+  return {
+    nav: {
+      selected,
+      tools: tools.list
+    }
   }
 }
 
-const filterTodos = ( todos, filter ) => {
-  switch( filter ) {
-    case 'SHOW_ALL':
-      return todos
-    case 'SHOW_COMPLETED':
-      return todos.filter( t => t.completed )
-    case 'SHOW_ACTIVE':
-      return todos.filter( t => !t.completed )
-    default:
-      throw new Error( 'Unknown filter: ' + filter )
+const mapDispatchToPage = dispatch => {
+
+  return {
+    dispatch
   }
 }
 
-const mapStateToData = state => ({
-  todos: filterTodos( state.todos, state.visibilityFilter ),
-  visibilityFilter: state.visibilityFilter
-})
 
-const mapDispatchToPage = dispatch => ({
-  setVisibilityFilter: filter => dispatch(setVisibilityFilter(filter)),
-  toggleTodo: id => dispatch(toggleTodo(id)),
-  addTodo: event => dispatch(addTodo(event.detail.value.todo)),
-  onToolTap: page => dispatch(navigatorToPage(page)),
-})
-
-const nextPageConfig = connect(mapStateToData, mapDispatchToPage)(pageConfig)
-
-Page(nextPageConfig);
+const page = Page(
+  connect(mapStateToData, mapDispatchToPage)(defaultConfig)
+);

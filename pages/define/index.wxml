@@ -1,0 +1,22 @@
+<import src="../components/listview/index.wxml"/>
+<import src="../components/button/index.wxml"/>
+
+<view class="define-banner">
+  <image class="banner-img" src="{{ banner.url }}"></image>
+</view>
+
+<view class="define-list">
+  <block 
+  wx:for="{{ list }}"
+  wx:for-index="index" 
+  wx:for-item="item"
+  wx:key="list"
+  >
+    <template is="component-listview" data="{{ ...item, id: index }}"/>
+  </block>
+</view>
+
+<view class="define-button">
+  <template is="component-button" data="{{ ...button }}"/>
+</view>
+

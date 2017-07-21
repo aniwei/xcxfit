@@ -1,2 +1,9 @@
-<!--index.wxml-->
-<text>index.wxml</text>
+<import src="../components/tools-pannel/index.wxml"/>
+
+<view class="me-banner">
+  <image class="me-img" url="{{ url }}"></image>
+</view>
+
+<view class="me-tools">
+  <template is="component-tools-pannel" data="{{ tools }}"/>
+</view>

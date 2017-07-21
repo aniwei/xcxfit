@@ -1,4 +1,6 @@
 /**index.wxss**/
+@import "../components/nav/index.wxss";
+
 .todos {
   padding: 10px;
 }

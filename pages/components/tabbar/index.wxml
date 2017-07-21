@@ -1,0 +1,15 @@
+<template name="component-tabbar">
+  <view class="tabbar">
+    <navigator class="tabbar-item" url="/pages/define/index">
+      <text>定制小程序</text>
+      <view class="icon-plan"></view>
+    </navigator>
+    <view class="tabbar-item tabbar-new {{ selected ? 'tabbar-new_selected' : ''}}" bindtap="onTabbarTap">
+      <view class="icon-new"></view>
+    </view>
+    <navigator class="tabbar-item" url="/pages/me/index">
+      <text>个人中心</text>
+      <view class="icon-plan"></view>
+    </navigator>
+  </view>
+</template>

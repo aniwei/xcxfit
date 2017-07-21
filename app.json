@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/new/index",
-    "pages/me/index"
+    "pages/me/index",
+    "pages/define/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

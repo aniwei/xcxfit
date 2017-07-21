@@ -1,0 +1,14 @@
+<import src="../tools-pannel/index.wxml"/>
+<import src="../tabbar/index.wxml" />
+
+<template name="component-nav">
+  <view class="nav {{ selected ? 'nav_toggled' : '' }}">
+    <view class="nav-tools {{ selected ? 'nav-tools_toggled' : '' }}">
+      <template is="component-tools-pannel" data="{{ tools }}"/>
+    </view>  
+
+    
+    <template is="component-tabbar" data="{{ selected }}"/>
+
+  </view>
+</template>

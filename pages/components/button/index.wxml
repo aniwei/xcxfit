@@ -1,0 +1,5 @@
+<template name="component-button">
+  <view class="button {{ type ? 'button_' + type : '' }} {{ state ? 'button_' + state : '' }}" bindtap="onSubmit">
+    {{ text }}
+  </view>
+</template>

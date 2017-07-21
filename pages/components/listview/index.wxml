@@ -1,0 +1,26 @@
+<template name="component-listview">
+  <view class="listview">
+    <view class="list-title">
+      {{ title }}
+    </view>
+    <view class="list-view {{ type ? 'list-view_' + type : '' }}">
+      <view class="list-item {{ item.selected ? 'list-item_selected' : '' }}"
+        wx:for="{{ list }}" 
+        wx:for-index="index" 
+        wx:for-item="item"
+        wx:key="item"
+        data-key="{{ item.key }}"
+        data-listid="{{ id }}"
+        data-itemid="{{ index }}"
+        bindtap="onItemTap"
+      >
+        <view class="list-key">
+          {{ item.name }}
+        </view>
+        <view class="list-value">
+          {{ item.value }}
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

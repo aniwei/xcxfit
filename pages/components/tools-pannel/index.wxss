@@ -1,0 +1,40 @@
+.tools-pannel {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 35rpx;
+  align-items: center;
+  z-index: 1;
+}
+
+.tools-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  width: 33%;
+  height: 220rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.tools-item [class*="icon-"] {
+  margin-bottom: 20rpx;
+}
+
+.tools-txt {
+  font-size: 14px;
+}
+
+.tools-pannel::after {
+  z-index: 1;
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0; 
+  filter: blur(20px);
+}
